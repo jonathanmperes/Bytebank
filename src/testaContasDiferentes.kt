@@ -8,18 +8,26 @@ fun testaContasDiferentes() {
         titular = "Fran",
         numero = 1001
     )
+    val contaSalario = ContaSalario(
+        titular = "Gui",
+        numero = 1002
+    )
 
     contaCorrente.deposita(1000.0)
     contapoupanca.deposita(1000.0)
+    contaSalario.deposita(1000.0)
 
     println("Saldo conta corrente: ${contaCorrente.saldo}")
     println("Saldo conta poupança: ${contapoupanca.saldo}")
+    println("Saldo conta salario: ${contaSalario.saldo}")
 
     contaCorrente.saca(100.0)
     contapoupanca.saca(100.0)
+    contaSalario.saca(100.0)
 
     println("Saldo conta corrente após saque: ${contaCorrente.saldo}")
     println("Saldo conta poupança após saque: ${contapoupanca.saldo}")
+    println("Saldo conta salario após saque: ${contapoupanca.saldo}")
 
     contaCorrente.transfere(100.0, contapoupanca)
 

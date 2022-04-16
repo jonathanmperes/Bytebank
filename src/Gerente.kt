@@ -9,6 +9,7 @@ class Gerente(
     salario = salario,
     senha = senha
 ) {
+
     override fun bonicacao(): Double {
         return salario
     }
