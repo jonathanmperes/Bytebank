@@ -1,29 +1,26 @@
 import br.com.alura.modelo.Endereco
 
 fun main() {
-    val endereco = Endereco(
-        logradouro = "Rua Vergueiro",
-        complemento = "Alura",
-        cep = "00000-000"
-    )
-    val enderecoNovo = Endereco(
-        logradouro = "Rua Vergueiro",
-        complemento = "Alura",
-        cep = "00000-000"
-    )
-
-    println(endereco.equals(enderecoNovo))
-
-    println(endereco.hashCode())
-    println(enderecoNovo .hashCode())
-
-    println(endereco.toString())
-    println(enderecoNovo.toString())
-
-    println("${endereco.javaClass}@${endereco.hashCode()}")
-    println("${endereco.javaClass}@${Integer.toHexString(endereco.hashCode())}")
+    println("início main")
+    10/0
+    funcao1()
+    println("fim main")
 }
 
-fun imprime(valor: Any) {
-    println(valor)
+fun funcao1() {
+    println("início funcao1")
+    funcao2()
+    println("fim funcao1")
 }
+
+fun funcao2() {
+    println("início funcao2")
+    for (i in 1..5) {
+        println(i)
+        val endereco = Any()
+        endereco as Endereco
+    }
+    println("fim funcao2")
+}
+
+
