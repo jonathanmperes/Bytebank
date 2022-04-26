@@ -1,3 +1,5 @@
+import br.com.alura.exception.FalhaAutenticacaoException
+import br.com.alura.exception.SaldoInsuficienteException
 import br.com.alura.modelo.Cliente
 import br.com.alura.modelo.ContaCorrente
 import br.com.alura.modelo.ContaPoupanca
@@ -61,9 +63,19 @@ fun testaComportamentosConta() {
 
     println("Transferindo da conta da Fran para o Alex")
 
-    if (contaFran.transfere(100.0, contaAlex)) {
+    try {
+        contaFran.transfere(250.0, contaAlex, 2)
         println("Transferência realizada com sucesso")
-    } else {
+    } catch (e: SaldoInsuficienteException) {
         println("Falha na transferência")
+        println("Saldo insuficiente")
+        e.printStackTrace()
+    } catch (e: FalhaAutenticacaoException) {
+        println("Falha na transferência")
+        println("Falha na autenticação")
+        e.printStackTrace()
+    } catch (e: Exception) {
+        println("Erro desconhecido")
+        e.printStackTrace()
     }
 }
